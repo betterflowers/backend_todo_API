@@ -34,4 +34,10 @@ public class TodoService {
                 .map(TodoMapper::toTodoResponse)
                 .collect(Collectors.toList());
     }
+
+    public List<TodoResponse> deleteTodoById(Integer id){
+        this.todoRepository.deleteById(id);
+        return getAllTodo();
+    }
+
 }
