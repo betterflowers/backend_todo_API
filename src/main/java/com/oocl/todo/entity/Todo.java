@@ -1,9 +1,6 @@
 package com.oocl.todo.entity;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 public class Todo {
@@ -14,5 +11,32 @@ public class Todo {
     private String content;
     private Boolean status;
 
+    public Todo(String content, Boolean status) {
+        this.content = content;
+        this.status = status;
+    }
 
+    public Todo() {
+
+    }
+
+    public void setContent(String content) {
+        this.content = content;
+    }
+
+    public void setStatus(Boolean status) {
+        this.status = status;
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public String getContent() {
+        return content;
+    }
+
+    public Boolean getStatus() {
+        return status;
+    }
 }

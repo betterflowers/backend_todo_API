@@ -1,11 +1,12 @@
 package com.oocl.todo.dto;
+import com.oocl.todo.entity.Todo;
 
 public class TodoRequest {
 
     private String content;
 
-    public TodoRequest(String content) {
-        this.content = content;
+    public TodoRequest() {
+
     }
 
     public String getContent() {
@@ -16,7 +17,9 @@ public class TodoRequest {
         this.content = content;
     }
 
-//    public static requestMapToEntity(){
-//
+//    public static Todo to(TodoRequest todoRequest){
+//        Todo todo = new Todo();
+//        todo.setContent(todoRequest.getContent());
+//        return todo;
 //    }
 }

@@ -1,15 +1,30 @@
 package com.oocl.todo.dto;
 
+import com.oocl.todo.entity.Todo;
+
 public class TodoResponse {
 
     private Integer id;
     private String content;
     private Boolean status;
 
+    public TodoResponse() {
+
+    }
+
     public TodoResponse(Integer id, String content, Boolean status) {
         this.id = id;
         this.content = content;
         this.status = status;
+    }
+
+    public static TodoResponse to(Todo todo){
+        TodoResponse todoResponse = new TodoResponse();
+        todoResponse.setId(todo.getId());
+        todoResponse.setContent(todo.getContent());
+        todoResponse.setStatus(todo.getStatus());
+        return todoResponse;
+
     }
 
     public Integer getId() {
