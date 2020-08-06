@@ -19,11 +19,6 @@ public class TodoController {
         this.todoService = todoService;
     }
 
-//    @PostMapping
-//    public TodoResponse addTodo(@RequestBody TodoRequest todoRequest){
-//        return todoService.addTodo(todoRequest);
-//    }
-
     @GetMapping
     public List<TodoResponse> getAllTodo(){
         return todoService.getAllTodo();
@@ -37,5 +32,11 @@ public class TodoController {
     @PostMapping
     public List<TodoResponse> addTodoItem(@RequestBody TodoRequest todoRequest){
         return todoService.addTodo(todoRequest);
+    }
+
+    @PatchMapping("/{id}")
+    public List<TodoResponse> changeTodoItemStatusById (@PathVariable Integer id) throws Exception{
+        return todoService.changeTodoItemStatusById(id);
+
     }
 }
