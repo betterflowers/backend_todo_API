@@ -2,7 +2,6 @@ package com.oocl.todo.service;
 
 import com.oocl.todo.dto.TodoRequest;
 import com.oocl.todo.dto.TodoResponse;
-import com.oocl.todo.entity.Todo;
 import com.oocl.todo.mapper.TodoMapper;
 import com.oocl.todo.repository.TodoRepository;
 import org.springframework.stereotype.Service;
@@ -20,23 +19,19 @@ public class TodoService {
         this.todoRepository = todoRepository;
     }
 
-//    public TodoResponse addTodo(TodoRequest todoRequest){
-//       Todo todo = todoRepository.save(TodoRequest.to(todoRequest));
-//        return TodoResponse.to(todo);
-//    }
-
-//    public List<Todo> getAllTodo(){
-//        return todoRepository.findAll();
-//    }
-
-    public List<TodoResponse> getAllTodo(){
+    public List<TodoResponse> getAllTodo() {
         return this.todoRepository.findAll().stream()
                 .map(TodoMapper::toTodoResponse)
                 .collect(Collectors.toList());
     }
 
-    public List<TodoResponse> deleteTodoById(Integer id){
+    public List<TodoResponse> deleteTodoById(Integer id) {
         this.todoRepository.deleteById(id);
+        return getAllTodo();
+    }
+
+    public List<TodoResponse> addTodo(TodoRequest todoRequest) {
+        TodoMapper.toTodoResponse(this.todoRepository.save(TodoMapper.toTodo(todoRequest)));
         return getAllTodo();
     }
 

@@ -18,15 +18,6 @@ public class TodoResponse {
         this.status = status;
     }
 
-    public static TodoResponse to(Todo todo){
-        TodoResponse todoResponse = new TodoResponse();
-        todoResponse.setId(todo.getId());
-        todoResponse.setContent(todo.getContent());
-        todoResponse.setStatus(todo.getStatus());
-        return todoResponse;
-
-    }
-
     public Integer getId() {
         return id;
     }

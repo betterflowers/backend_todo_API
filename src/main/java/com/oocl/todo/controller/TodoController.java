@@ -1,6 +1,7 @@
 package com.oocl.todo.controller;
 
 
+import com.oocl.todo.dto.TodoRequest;
 import com.oocl.todo.dto.TodoResponse;
 import com.oocl.todo.entity.Todo;
 import com.oocl.todo.service.TodoService;
@@ -31,5 +32,10 @@ public class TodoController {
     @DeleteMapping("/{id}")
     public List<TodoResponse> deleteTodoById(@PathVariable Integer id){
         return todoService.deleteTodoById(id);
+    }
+
+    @PostMapping
+    public List<TodoResponse> addTodoItem(@RequestBody TodoRequest todoRequest){
+        return todoService.addTodo(todoRequest);
     }
 }

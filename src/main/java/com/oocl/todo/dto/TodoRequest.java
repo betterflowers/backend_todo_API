@@ -17,9 +17,4 @@ public class TodoRequest {
         this.content = content;
     }
 
-//    public static Todo to(TodoRequest todoRequest){
-//        Todo todo = new Todo();
-//        todo.setContent(todoRequest.getContent());
-//        return todo;
-//    }
 }
